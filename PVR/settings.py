@@ -1,5 +1,5 @@
 """
-Django settings for campus project.
+Django settings for PVR project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'dpecj==02gf7k%ozxvil69v8c(o2qujd4=peh5kxp5b+lb_%c4'
+SECRET_KEY = 'fc0okf*6=yor+gflhqd0(s&mml%wm72h3pt=)^$(i0k1al4hq)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -36,7 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'blog',
+    'proj_panel'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -49,9 +49,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'campus.urls'
+ROOT_URLCONF = 'PVR.urls'
 
-WSGI_APPLICATION = 'campus.wsgi.application'
+WSGI_APPLICATION = 'PVR.wsgi.application'
 
 
 # Database
@@ -82,17 +82,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
-import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-ALLOWED_HOSTS = ['*']
-
-STATIC_ROOT = 'staticfiles'
-
-DEBUG = False
-try:
-    from .local_settings import *
-except ImportError:
-    pass
